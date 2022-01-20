@@ -6,12 +6,12 @@ const AmountList = (props) => {
 
   return (
     <>
-      {amounts.map(({ id, amount, description }) => (
+      {amounts.map(({ amount, description }, id) => (
         <tr
           key={id}
           className={`${
             id % 2 === 0 ? "bg-slate-100" : "bg-white"
-          } w - full text-right`}
+          } w-full text-right`}
         >
           {amount > 0 ? (
             <>
