@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { AppContextProvider } from "/src/components/AppContext";
-import Header from "./Header";
+import Header from "/src/components/Header";
 
 const Layout = (props) => {
   const { children, ...otherProps } = props;

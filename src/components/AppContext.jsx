@@ -2,31 +2,55 @@ import { createContext, useCallback, useState, useEffect } from "react";
 
 const AppContext = createContext({});
 
-const save = (amounts) => {
-  localStorage.setItem("amounts", JSON.stringify(amounts));
+const save = (datas) => {
+  localStorage.setItem("datas", JSON.stringify(datas));
 };
 
 export const AppContextProvider = (props) => {
-  const [amounts, setAmounts] = useState([]);
+  const [datas, setdatas] = useState([]);
+  const [totalIncoming, setTotalIncoming] = useState(0);
+  const [totalOutgoing, setTotalOutgoing] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  const addAmount = useCallback(
-    (amount) => setAmounts((currentAmounts) => [...currentAmounts, amount]),
+  useEffect(() => {
+    let totalIncome = datas.reduce((total, current) => {
+      if (current.amount > 0) {
+        return Number(total) + Number(current.amount);
+      }
+      return Number(total) + 0;
+    }, 0);
+
+    setTotalIncoming(totalIncome);
+  }, [datas]);
+
+  useEffect(() => {
+    let totalOutgone = datas.reduce((total, current) => {
+      if (current.amount < 0) {
+        return Number(total) + Number(current.amount);
+      }
+      return Number(total) + 0;
+    }, 0);
+
+    setTotalOutgoing(totalOutgone);
+  }, [datas]);
+
+  const addDatas = useCallback(
+    (data) => setdatas((currentdatas) => [...currentdatas, data]),
     []
   );
 
   useEffect(() => {
-    const amount = localStorage.getItem("amounts");
+    const localStorageDatas = localStorage.getItem("datas");
 
-    if (!amount) {
+    if (!localStorageDatas) {
       setLoaded(true);
 
       return;
     }
 
-    const amounts = JSON.parse(amount);
+    const datas = JSON.parse(localStorageDatas);
 
-    setAmounts(amounts);
+    setdatas(datas);
     setLoaded(true);
   }, []);
 
@@ -35,13 +59,13 @@ export const AppContextProvider = (props) => {
       return;
     }
 
-    save(amounts);
-  }, [loaded, amounts]);
+    save(datas);
+  }, [loaded, datas]);
 
   return (
     <AppContext.Provider
       {...props}
-      value={{ amounts: amounts || [], addAmount }}
+      value={{ datas, addDatas, totalIncoming, totalOutgoing }}
     />
   );
 };

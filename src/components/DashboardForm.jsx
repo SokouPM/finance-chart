@@ -17,19 +17,19 @@ const displayingErrorMessagesSchema = Yup.object().shape({
 });
 
 const DashboardForm = (props) => {
-  const { addAmount } = useContext(AppContext);
+  const { addDatas } = useContext(AppContext);
 
   const handleFormSubmit = useCallback(
     (values, { resetForm }) => {
-      addAmount({
-        amount: values.amount,
+      addDatas({
+        amount: parseInt(values.amount),
         description: values.description,
       });
       resetForm();
 
       return true;
     },
-    [addAmount]
+    [addDatas]
   );
 
   return (
