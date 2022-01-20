@@ -2,7 +2,7 @@ import { useCallback, useContext } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import AppContext from "/src/components/AppContext";
-import FormField from "/src/components/FormField";
+import FormField from "/src/components/form/FormField";
 
 const displayingErrorMessagesSchema = Yup.object().shape({
   amount: Yup.number()

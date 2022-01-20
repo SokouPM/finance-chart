@@ -1,5 +1,5 @@
 
-import AmountTable from "../src/components/AmountTable";
+import AmountTable from "/src/components/dashboard/AmountTable";
 import Layout from "/src/components/Layout";
 
 const Home = () => {

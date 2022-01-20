@@ -1,4 +1,4 @@
-import DashboardForm from "../src/components/DashboardForm";
+import DashboardForm from "../src/components/form/DashboardForm";
 import Layout from "/src/components/Layout";
 
 const AddEntry = () => {

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import AppContext from "./AppContext";
+import AppContext from "/src/components/AppContext";
 
 const TotalIncoming = () => {
   const { totalIncoming } = useContext(AppContext);
