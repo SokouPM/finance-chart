@@ -1,33 +1,49 @@
-import { createContext, useCallback, useState } from "react";
+import { createContext, useCallback, useState, useEffect } from "react";
 
 const AppContext = createContext({});
 
+const save = (amounts) => {
+  localStorage.setItem("amounts", JSON.stringify(amounts));
+};
+
 export const AppContextProvider = (props) => {
-  const [amounts, setAmounts] = useState([
-    {
-      amount: 1200,
-      description: "Test 1",
-    },
-    {
-      amount: -200,
-      description: "Test 2",
-    },
-    {
-      amount: -400,
-      description: "Test 3",
-    },
-    {
-      amount: 600,
-      description: "Test 4",
-    },
-  ]);
+  const [amounts, setAmounts] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
-  // const addAmount = useCallback(
-  //   (amount) => setAmounts((currentAmounts) => [...currentAmounts, amount]),
-  //   []
-  // );
+  const addAmount = useCallback(
+    (amount) => setAmounts((currentAmounts) => [...currentAmounts, amount]),
+    []
+  );
 
-  return <AppContext.Provider {...props} value={{ amounts /*, addAmount*/ }} />;
+  useEffect(() => {
+    const amount = localStorage.getItem("amounts");
+
+    if (!amount) {
+      setLoaded(true);
+
+      return;
+    }
+
+    const amounts = JSON.parse(amount);
+
+    setAmounts(amounts);
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!loaded) {
+      return;
+    }
+
+    save(amounts);
+  }, [loaded, amounts]);
+
+  return (
+    <AppContext.Provider
+      {...props}
+      value={{ amounts: amounts || [], addAmount }}
+    />
+  );
 };
 
 export default AppContext;

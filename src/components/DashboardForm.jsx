@@ -1,6 +1,7 @@
+import { useCallback, useContext } from "react";
 import { Form, Formik } from "formik";
-import { useCallback } from "react";
 import * as Yup from "yup";
+import AppContext from "/src/components/AppContext";
 import FormField from "/src/components/FormField";
 
 const displayingErrorMessagesSchema = Yup.object().shape({
@@ -16,16 +17,19 @@ const displayingErrorMessagesSchema = Yup.object().shape({
 });
 
 const DashboardForm = (props) => {
-  const { onSubmit } = props;
+  const { addAmount } = useContext(AppContext);
 
   const handleFormSubmit = useCallback(
-    ({ amount, description }, { resetForm }) => {
-      onSubmit({ amount, description });
+    (values, { resetForm }) => {
+      addAmount({
+        amount: values.amount,
+        description: values.description,
+      });
       resetForm();
 
       return true;
     },
-    [onSubmit]
+    [addAmount]
   );
 
   return (

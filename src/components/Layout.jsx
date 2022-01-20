@@ -2,7 +2,6 @@ import Head from "next/head";
 import { AppContextProvider } from "/src/components/AppContext";
 import Header from "./Header";
 
-
 const Layout = (props) => {
   const { children, ...otherProps } = props;
 
@@ -20,7 +19,7 @@ const Layout = (props) => {
         </Head>
         <Header title={props.title} />
         <main className="w-4/6 p-8 border-2 mx-auto">{children}</main>
-      </div>{" "}
+      </div>
     </AppContextProvider>
   );
 };
