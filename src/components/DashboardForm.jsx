@@ -4,12 +4,12 @@ import * as Yup from "yup";
 import FormField from "/src/components/FormField";
 
 const displayingErrorMessagesSchema = Yup.object().shape({
-  value: Yup.number()
-    .typeError("Le champ doit être un nombre !")
+  amount: Yup.number()
+    .typeError("Le montant doit être un nombre !")
     .test(
-      "Egale à 0 ?",
-      "La valeur ne doit pas être égale à 0 !",
-      (value) => value != 0
+      "montant égal à 0 ?",
+      "Le montant ne doit pas être égale à 0 !",
+      (amount) => amount != 0
     )
     .required("Le champ est requis !"),
   description: Yup.string().required("Le champ est requis !"),
@@ -19,9 +19,8 @@ const DashboardForm = (props) => {
   const { onSubmit } = props;
 
   const handleFormSubmit = useCallback(
-    ({ value, description }, { resetForm }) => {
-      // onSubmit({ value, description });
-      alert(value + description);
+    ({ amount, description }, { resetForm }) => {
+      onSubmit({ amount, description });
       resetForm();
 
       return true;
@@ -32,7 +31,7 @@ const DashboardForm = (props) => {
   return (
     <Formik
       initialValues={{
-        value: "0",
+        amount: "0",
         description: "",
       }}
       validationSchema={displayingErrorMessagesSchema}
@@ -41,11 +40,11 @@ const DashboardForm = (props) => {
       {({ errors, touched }) => (
         <Form>
           <FormField
-            id="value"
-            name="value"
+            id="amount"
+            name="amount"
             placeholder="La valeur"
-            errorType={errors.value}
-            touchedType={touched.value}
+            errorType={errors.amount}
+            touchedType={touched.amount}
           />
           <FormField
             type="textarea"
