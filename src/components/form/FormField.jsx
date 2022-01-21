@@ -1,4 +1,4 @@
-import { Field } from "formik";
+import { Field } from "formik"
 
 const FormField = (props) => {
   return (
@@ -16,7 +16,7 @@ const FormField = (props) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default FormField;
+export default FormField

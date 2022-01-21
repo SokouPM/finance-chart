@@ -1,8 +1,8 @@
-import { useCallback, useContext } from "react";
-import { Form, Formik } from "formik";
-import * as Yup from "yup";
-import AppContext from "/src/components/AppContext";
-import FormField from "/src/components/form/FormField";
+import { useCallback, useContext } from "react"
+import { Form, Formik } from "formik"
+import * as Yup from "yup"
+import AppContext from "/src/components/AppContext"
+import FormField from "/src/components/form/FormField"
 
 const displayingErrorMessagesSchema = Yup.object().shape({
   amount: Yup.number()
@@ -16,23 +16,23 @@ const displayingErrorMessagesSchema = Yup.object().shape({
     )
     .required("Le champ est requis"),
   description: Yup.string().required("Le champ est requis"),
-});
+})
 
 const DashboardForm = () => {
-  const { addDatas } = useContext(AppContext);
+  const { addDatas } = useContext(AppContext)
 
   const handleFormSubmit = useCallback(
     (values, { resetForm }) => {
       addDatas({
         amount: Number(values.amount),
         description: values.description,
-      });
-      resetForm();
+      })
+      resetForm()
 
-      return true;
+      return true
     },
     [addDatas]
-  );
+  )
 
   return (
     <Formik
@@ -70,7 +70,7 @@ const DashboardForm = () => {
         </Form>
       )}
     </Formik>
-  );
-};
+  )
+}
 
-export default DashboardForm;
+export default DashboardForm

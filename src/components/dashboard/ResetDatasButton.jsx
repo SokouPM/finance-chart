@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import AppContext from "/src/components/AppContext";
+import { useContext } from "react"
+import AppContext from "/src/components/AppContext"
 
 const ResetDatasButton = () => {
-  const { resetDatas } = useContext(AppContext);
+  const { resetDatas } = useContext(AppContext)
 
   return (
     <button
@@ -11,7 +11,7 @@ const ResetDatasButton = () => {
     >
       Vider le journal
     </button>
-  );
-};
+  )
+}
 
-export default ResetDatasButton;
+export default ResetDatasButton

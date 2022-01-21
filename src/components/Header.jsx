@@ -1,4 +1,4 @@
-import Nav from "/src/components/Nav";
+import Nav from "/src/components/Nav"
 
 const Header = ({ pageTitle }) => {
   return (
@@ -6,7 +6,7 @@ const Header = ({ pageTitle }) => {
       <h1 className="text-4xl font-bold">{pageTitle}</h1>
       <Nav />
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

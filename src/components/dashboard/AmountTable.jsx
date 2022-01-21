@@ -1,8 +1,8 @@
-import React from "react";
-import TotalAmount from "/src/components/dashboard/TotalAmount";
-import TotalIncoming from "/src/components/dashboard/TotalIncoming";
-import TotalOutgoin from "/src/components/dashboard/TotalOutgoin";
-import AmountList from "/src/components/dashboard/AmountList";
+import React from "react"
+import TotalAmount from "/src/components/dashboard/TotalAmount"
+import TotalIncoming from "/src/components/dashboard/TotalIncoming"
+import TotalOutgoin from "/src/components/dashboard/TotalOutgoin"
+import AmountList from "/src/components/dashboard/AmountList"
 
 const AmountTable = () => {
   return (
@@ -41,7 +41,7 @@ const AmountTable = () => {
         </tr>
       </tfoot>
     </table>
-  );
-};
+  )
+}
 
-export default AmountTable;
+export default AmountTable

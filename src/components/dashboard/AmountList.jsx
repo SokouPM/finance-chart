@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import AppContext from "/src/components/AppContext";
+import { useContext } from "react"
+import AppContext from "/src/components/AppContext"
 
 const AmountList = () => {
-  const { datas } = useContext(AppContext);
+  const { datas } = useContext(AppContext)
 
   return (
     <>
@@ -33,7 +33,7 @@ const AmountList = () => {
         </tr>
       ))}
     </>
-  );
-};
+  )
+}
 
-export default AmountList;
+export default AmountList

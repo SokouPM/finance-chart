@@ -1,6 +1,6 @@
-import Layout from "/src/components/Layout";
-import AmountTable from "/src/components/dashboard/AmountTable";
-import ResetDatasButton from "/src/components/dashboard/ResetDatasButton";
+import Layout from "/src/components/Layout"
+import AmountTable from "/src/components/dashboard/AmountTable"
+import ResetDatasButton from "/src/components/dashboard/ResetDatasButton"
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
       <AmountTable />
       <ResetDatasButton />
     </Layout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
