@@ -39,6 +39,8 @@ export const AppContextProvider = (props) => {
     []
   );
 
+  const resetDatas = useCallback(() => localStorage.clear() + setdatas([]), []);
+
   useEffect(() => {
     const localStorageDatas = localStorage.getItem("datas");
 
@@ -65,7 +67,7 @@ export const AppContextProvider = (props) => {
   return (
     <AppContext.Provider
       {...props}
-      value={{ datas, addDatas, totalIncoming, totalOutgoing }}
+      value={{ datas, addDatas, resetDatas, totalIncoming, totalOutgoing }}
     />
   );
 };

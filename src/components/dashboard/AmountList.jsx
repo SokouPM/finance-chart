@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import AppContext from "/src/components/AppContext";
 
-const AmountList = (props) => {
+const AmountList = () => {
   const { datas } = useContext(AppContext);
 
   return (

@@ -18,7 +18,7 @@ const displayingErrorMessagesSchema = Yup.object().shape({
   description: Yup.string().required("Le champ est requis"),
 });
 
-const DashboardForm = (props) => {
+const DashboardForm = () => {
   const { addDatas } = useContext(AppContext);
 
   const handleFormSubmit = useCallback(

@@ -4,7 +4,7 @@ import TotalIncoming from "/src/components/dashboard/TotalIncoming";
 import TotalOutgoin from "/src/components/dashboard/TotalOutgoin";
 import AmountList from "/src/components/dashboard/AmountList";
 
-const AmountTable = (props) => {
+const AmountTable = () => {
   return (
     <table className="w-full">
       <thead className="text-left text-xl">
