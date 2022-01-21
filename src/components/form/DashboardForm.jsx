@@ -15,7 +15,9 @@ const displayingErrorMessagesSchema = Yup.object().shape({
       (amount) => amount != 0
     )
     .required("Le champ est requis"),
-  description: Yup.string().required("Le champ est requis"),
+  description: Yup.string()
+    .max(255, "La description ne doit pas dépasser 255 caractères")
+    .required("Le champ est requis"),
 })
 
 const DashboardForm = () => {
