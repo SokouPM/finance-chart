@@ -6,14 +6,16 @@ import FormField from "/src/components/form/FormField";
 
 const displayingErrorMessagesSchema = Yup.object().shape({
   amount: Yup.number()
-    .typeError("Le montant doit être un nombre !")
+    .typeError("Le montant doit être un nombre")
+    .min(-999999, "Le montant doit être supérieur ou égal à -999999")
+    .max(999999, "Le montant doit être inférieur ou égal à 999999")
     .test(
-      "montant égal à 0 ?",
-      "Le montant ne doit pas être égale à 0 !",
+      "Amount equal to 0 ?",
+      "Le montant ne doit pas être égal à 0",
       (amount) => amount != 0
     )
-    .required("Le champ est requis !"),
-  description: Yup.string().required("Le champ est requis !"),
+    .required("Le champ est requis"),
+  description: Yup.string().required("Le champ est requis"),
 });
 
 const DashboardForm = (props) => {
@@ -22,7 +24,7 @@ const DashboardForm = (props) => {
   const handleFormSubmit = useCallback(
     (values, { resetForm }) => {
       addDatas({
-        amount: parseInt(values.amount),
+        amount: Number(values.amount),
         description: values.description,
       });
       resetForm();
