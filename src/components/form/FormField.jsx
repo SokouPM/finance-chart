@@ -6,12 +6,14 @@ const FormField = (props) => {
       <Field
         as={props.type}
         id={props.id}
-        className={`${props.imputStyle} w-full mb-1 p-2 border-2 rounded`}
+        className={`${
+          props.touchedType && props.errorType ? "border-red-500" : null
+        } w-full p-2 border-2 rounded`}
         name={props.name}
         placeholder={props.placeholder}
       ></Field>
       {props.touchedType && props.errorType && (
-        <div className="errorField w-full p-2 bg-red-200 text-red-500">
+        <div className="errorField w-full font-bold text-red-500">
           {props.errorType}
         </div>
       )}

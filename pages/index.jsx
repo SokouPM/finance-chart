@@ -4,7 +4,7 @@ import ResetDatasButton from "/src/components/dashboard/ResetDatasButton"
 
 const Home = () => {
   return (
-    <Layout pageTitle="Journal">
+    <Layout pagetitle="Journal">
       <AmountTable />
       <ResetDatasButton />
     </Layout>

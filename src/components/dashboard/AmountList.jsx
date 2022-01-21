@@ -17,7 +17,7 @@ const AmountList = () => {
             <>
               <td className="w-1/2 p-1 border-x-2">
                 <p className="font-bold text-green-500">{amount} €</p>
-                <p>{description}</p>
+                <p className="italic break-all">{description}</p>
               </td>
               <td className="w-1/2 p-1 border-x-2"></td>
             </>
@@ -26,7 +26,7 @@ const AmountList = () => {
               <td className="w-1/2 p-1 border-x-2"></td>
               <td className="w-1/2 p-1 border-x-2">
                 <p className="font-bold text-red-500">{amount} €</p>
-                <p>{description}</p>
+                <p className="italic break-all">{description}</p>
               </td>
             </>
           )}
