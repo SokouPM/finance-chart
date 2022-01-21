@@ -3,7 +3,7 @@ import Layout from "/src/components/Layout";
 
 const AddEntry = () => {
   return (
-    <Layout title="Ajouter une entrée">
+    <Layout pageTitle="Ajouter une entrée">
       <DashboardForm />
     </Layout>
   );
