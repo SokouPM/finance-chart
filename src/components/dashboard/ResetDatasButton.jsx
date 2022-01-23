@@ -7,7 +7,7 @@ const ResetDatasButton = () => {
   return (
     <button
       onClick={resetDatas}
-      className="w-full p-2 mt-8 text-white bg-gray-700 hover:bg-gray-400"
+      className="w-full p-2 mt-8 text-white bg-gray-700 transition-all hover:bg-gray-400"
     >
       Vider le journal
     </button>

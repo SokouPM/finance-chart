@@ -64,7 +64,7 @@ const DashboardForm = () => {
             touchedType={touched.description}
           />
           <button
-            className="w-full p-2 text-white bg-gray-700 hover:bg-gray-400"
+            className="w-full p-2 text-white bg-gray-700 hover:bg-gray-400 transition-all"
             type="submit"
           >
             Ajouter
