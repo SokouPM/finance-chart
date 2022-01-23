@@ -39,7 +39,7 @@ const DashboardForm = () => {
   return (
     <Formik
       initialValues={{
-        amount: "0",
+        amount: 0,
         description: "",
       }}
       validationSchema={displayingErrorMessagesSchema}

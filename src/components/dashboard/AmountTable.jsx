@@ -5,8 +5,8 @@ import AmountList from "/src/components/dashboard/AmountList"
 
 const AmountTable = () => {
   return (
-    <table className="w-full">
-      <thead className="text-left text-xl">
+    <table className="w-full bg-white">
+      <thead className="text-white bg-gray-400 text-left text-xl">
         <tr>
           <th className="w-1/2 p-1 border-2">RECETTES</th>
           <th className="w-1/2 p-1 border-2">DÉPENSES</th>
