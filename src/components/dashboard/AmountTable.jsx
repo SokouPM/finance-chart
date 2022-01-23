@@ -1,4 +1,3 @@
-import React from "react"
 import TotalAmount from "/src/components/dashboard/TotalAmount"
 import TotalIncoming from "/src/components/dashboard/TotalIncoming"
 import TotalOutgoin from "/src/components/dashboard/TotalOutgoin"
